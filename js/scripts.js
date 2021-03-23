@@ -281,6 +281,56 @@ map.on('style.load', function () {
                      map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
                      map.setLayoutProperty('death-fill', 'visibility', 'none');
 
+
+           // Pop up code for the Ozone. Have to nest inside this click function so that
+           // the pop-up content will change as the user clicks through the different layers
+                                       map.on('mousemove', function (e) {
+
+                                         var features = map.queryRenderedFeatures(e.point, {
+                                             layers: ['ozone-fill'],
+                                         });
+
+                                         if (features.length > 0) {
+                                           // show the popup
+                                           // Populate the popup and set its coordinates
+                                           // based on the feature found.
+
+                                           var hoveredFeature = features[0]
+                                           var nta_name = hoveredFeature.properties.NTA_Name
+                                           var pollutantDescription = hoveredFeature.properties.Ozone
+                                           var ranking = hoveredFeature.properties.Ozone_R
+
+
+                                           var popupContent = `
+                                             <div >
+                                                   <b>Ozone Pollution</b> </br>
+                                                   <b>Neighborhood Name</b>: ${nta_name}<br/>
+                                                   <b>Amount </b>: ${pollutantDescription} ppb <br/>
+                                                   <b>Neighborhood Ranking</b>: ${ranking} out of 195<br/>
+
+
+                                             </div>
+                                           `
+
+                                           popup.setLngLat(e.lngLat).setHTML(popupContent).addTo(map);
+
+                                           // set this lot's polygon feature as the data for the highlight source
+                                           map.getSource('highlight-feature').setData(hoveredFeature.geometry);
+
+                                           // show the cursor as a pointer
+                                           map.getCanvas().style.cursor = 'pointer';
+                                         } else {
+                                           // remove the Popup
+                                           popup.remove();
+
+                                           map.getCanvas().style.cursor = '';
+                                         }
+
+                                       });
+
+
+
+
                   });
 
                   $('#so2').on('click', function(){
@@ -293,7 +343,50 @@ map.on('style.load', function () {
                      map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
                      map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
                      map.setLayoutProperty('death-fill', 'visibility', 'none');
+                     map.on('mousemove', function (e) {
 
+
+                       var features = map.queryRenderedFeatures(e.point, {
+                           layers: ['so2-fill'],
+                       });
+
+                       if (features.length > 0) {
+                         // show the popup
+                         // Populate the popup and set its coordinates
+                         // based on the feature found.
+
+                         var hoveredFeature = features[0]
+                         var nta_name = hoveredFeature.properties.NTA_Name
+                         var pollutantDescription = hoveredFeature.properties.SulDiOx
+                         var ranking = hoveredFeature.properties.Sul2Ox_R
+
+
+                         var popupContent = `
+                           <div >
+                                 <b>Sulfur Dioxide Pollution</b> </br>
+                                 <b>Neighborhood Name</b>: ${nta_name}<br/>
+                                 <b>Amount </b>: ${pollutantDescription} ppb <br/>
+                                 <b>Neighborhood Ranking</b>: ${ranking} out of 195<br/>
+
+
+                           </div>
+                         `
+
+                         popup.setLngLat(e.lngLat).setHTML(popupContent).addTo(map);
+
+                         // set this lot's polygon feature as the data for the highlight source
+                         map.getSource('highlight-feature').setData(hoveredFeature.geometry);
+
+                         // show the cursor as a pointer
+                         map.getCanvas().style.cursor = 'pointer';
+                       } else {
+                         // remove the Popup
+                         popup.remove();
+
+                         map.getCanvas().style.cursor = '';
+                       }
+
+                     });
 
                   });
 
@@ -307,7 +400,50 @@ map.on('style.load', function () {
                      map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
                      map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
                      map.setLayoutProperty('death-fill', 'visibility', 'none');
+                     map.on('mousemove', function (e) {
 
+
+                       var features = map.queryRenderedFeatures(e.point, {
+                           layers: ['black-carbon-fill'],
+                       });
+
+                       if (features.length > 0) {
+                         // show the popup
+                         // Populate the popup and set its coordinates
+                         // based on the feature found.
+
+                         var hoveredFeature = features[0]
+                         var nta_name = hoveredFeature.properties.NTA_Name
+                         var pollutantDescription = hoveredFeature.properties.BlkCarbon
+                         var ranking = hoveredFeature.properties.BlkCarb_R
+
+
+                         var popupContent = `
+                           <div >
+                                 <b>Black Carbon Pollution</b> </br>
+                                 <b>Neighborhood Name</b>: ${nta_name}<br/>
+                                 <b>Amount </b>: ${pollutantDescription} annual average (absorbance units) <br/>
+                                 <b>Neighborhood Ranking</b>: ${ranking} out of 195<br/>
+
+
+                           </div>
+                         `
+
+                         popup.setLngLat(e.lngLat).setHTML(popupContent).addTo(map);
+
+                         // set this lot's polygon feature as the data for the highlight source
+                         map.getSource('highlight-feature').setData(hoveredFeature.geometry);
+
+                         // show the cursor as a pointer
+                         map.getCanvas().style.cursor = 'pointer';
+                       } else {
+                         // remove the Popup
+                         popup.remove();
+
+                         map.getCanvas().style.cursor = '';
+                       }
+
+                     });
 
                   });
 
@@ -321,7 +457,51 @@ map.on('style.load', function () {
                      map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
                      map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
                      map.setLayoutProperty('death-fill', 'visibility', 'none');
+                     map.on('mousemove', function (e) {
 
+
+                       var features = map.queryRenderedFeatures(e.point, {
+                           layers: ['pm-fill'],
+                       });
+
+                       if (features.length > 0) {
+                         // show the popup
+                         // Populate the popup and set its coordinates
+                         // based on the feature found.
+
+                         var hoveredFeature = features[0]
+                         var nta_name = hoveredFeature.properties.NTA_Name
+                         var pollutantDescription = hoveredFeature.properties.PM25
+                         var ranking = hoveredFeature.properties.PM25_R
+
+
+                         var popupContent = `
+                           <div >
+                                 <b>Fine Particulate Matter Pollution</b> </br>
+                                 <b>Neighborhood Name</b>: ${nta_name}<br/>
+                                 <b>Amount </b>: ${pollutantDescription} annual average (micrograms per cubic meter)
+<br/>
+                                 <b>Neighborhood Ranking</b>: ${ranking} out of 195<br/>
+
+
+                           </div>
+                         `
+
+                         popup.setLngLat(e.lngLat).setHTML(popupContent).addTo(map);
+
+                         // set this lot's polygon feature as the data for the highlight source
+                         map.getSource('highlight-feature').setData(hoveredFeature.geometry);
+
+                         // show the cursor as a pointer
+                         map.getCanvas().style.cursor = 'pointer';
+                       } else {
+                         // remove the Popup
+                         popup.remove();
+
+                         map.getCanvas().style.cursor = '';
+                       }
+
+                     });
 
                   });
 
@@ -336,7 +516,50 @@ map.on('style.load', function () {
                      map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
                      map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
                      map.setLayoutProperty('death-fill', 'visibility', 'none');
+                     map.on('mousemove', function (e) {
 
+
+                       var features = map.queryRenderedFeatures(e.point, {
+                           layers: ['no2-fill'],
+                       });
+
+                       if (features.length > 0) {
+                         // show the popup
+                         // Populate the popup and set its coordinates
+                         // based on the feature found.
+
+                         var hoveredFeature = features[0]
+                         var nta_name = hoveredFeature.properties.NTA_Name
+                         var pollutantDescription = hoveredFeature.properties.NitDiOx
+                         var ranking = hoveredFeature.properties.N2O_R
+
+
+                         var popupContent = `
+                           <div >
+                                 <b>Nitrogen Dioxide Pollution</b> </br>
+                                 <b>Neighborhood Name</b>: ${nta_name}<br/>
+                                 <b>Amount </b>: ${pollutantDescription} ppb <br/>
+                                 <b>Neighborhood Ranking</b>: ${ranking} out of 195<br/>
+
+
+                           </div>
+                         `
+
+                         popup.setLngLat(e.lngLat).setHTML(popupContent).addTo(map);
+
+                         // set this lot's polygon feature as the data for the highlight source
+                         map.getSource('highlight-feature').setData(hoveredFeature.geometry);
+
+                         // show the cursor as a pointer
+                         map.getCanvas().style.cursor = 'pointer';
+                       } else {
+                         // remove the Popup
+                         popup.remove();
+
+                         map.getCanvas().style.cursor = '';
+                       }
+
+                     });
 
                   });
 
@@ -350,7 +573,52 @@ map.on('style.load', function () {
                      map.setLayoutProperty('pm-fill', 'visibility', 'none');
                      map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
                      map.setLayoutProperty('death-fill', 'visibility', 'none');
+                     map.on('mousemove', function (e) {
 
+
+                       var features = map.queryRenderedFeatures(e.point, {
+                           layers: ['child-medicaid-asthma-fill'],
+                       });
+
+                       if (features.length > 0) {
+                         // show the popup
+                         // Populate the popup and set its coordinates
+                         // based on the feature found.
+
+                         var hoveredFeature = features[0]
+                         var nta_name = hoveredFeature.properties.NTA_Name
+                         var pollutantDescription = hoveredFeature.properties.M_ChdAst
+                         var ranking = hoveredFeature.properties.M_ChdAst_R
+
+
+                         var popupContent = `
+                           <div >
+                                 <b>Child Asthma Rates</b> </br>
+                                 <b>Neighborhood Name</b>: ${nta_name}<br/>
+                                 <b>Rate </b>: ${pollutantDescription} per 100,000 children ages 2-17 continuously enrolled
+                                 (for 11 months or more) in Medicaid in 2015
+ <br/>
+                                 <b>Neighborhood Ranking</b>: ${ranking} out of 195<br/>
+
+
+                           </div>
+                         `
+
+                         popup.setLngLat(e.lngLat).setHTML(popupContent).addTo(map);
+
+                         // set this lot's polygon feature as the data for the highlight source
+                         map.getSource('highlight-feature').setData(hoveredFeature.geometry);
+
+                         // show the cursor as a pointer
+                         map.getCanvas().style.cursor = 'pointer';
+                       } else {
+                         // remove the Popup
+                         popup.remove();
+
+                         map.getCanvas().style.cursor = '';
+                       }
+
+                     });
 
                   });
 
@@ -364,7 +632,51 @@ map.on('style.load', function () {
                      map.setLayoutProperty('pm-fill', 'visibility', 'none');
                      map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
                      map.setLayoutProperty('death-fill', 'visibility', 'none');
+                     map.on('mousemove', function (e) {
 
+
+                       var features = map.queryRenderedFeatures(e.point, {
+                           layers: ['child-hosp-asthma-fill'],
+                       });
+
+                       if (features.length > 0) {
+                         // show the popup
+                         // Populate the popup and set its coordinates
+                         // based on the feature found.
+
+                         var hoveredFeature = features[0]
+                         var nta_name = hoveredFeature.properties.NTA_Name
+                         var pollutantDescription = hoveredFeature.properties.H_ChdAst
+                         var ranking = hoveredFeature.properties.H_ChdAst_R
+
+
+                         var popupContent = `
+                           <div >
+                                 <b>Child Asthma-Related Hospitalizations</b> </br>
+                                 <b>Neighborhood Name</b>: ${nta_name}<br/>
+                                 <b>Rate </b>: ${pollutantDescription} asthma hospitalizations
+                                 per 10,000 children ages 5-14  <br/>
+                                 <b>Neighborhood Ranking</b>: ${ranking} out of 195<br/>
+
+
+                           </div>
+                         `
+
+                         popup.setLngLat(e.lngLat).setHTML(popupContent).addTo(map);
+
+                         // set this lot's polygon feature as the data for the highlight source
+                         map.getSource('highlight-feature').setData(hoveredFeature.geometry);
+
+                         // show the cursor as a pointer
+                         map.getCanvas().style.cursor = 'pointer';
+                       } else {
+                         // remove the Popup
+                         popup.remove();
+
+                         map.getCanvas().style.cursor = '';
+                       }
+
+                     });
 
                   });
 
@@ -378,55 +690,55 @@ map.on('style.load', function () {
                      map.setLayoutProperty('pm-fill', 'visibility', 'none');
                      map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
                      map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
+                     map.on('mousemove', function (e) {
 
+
+                       var features = map.queryRenderedFeatures(e.point, {
+                           layers: ['death-fill'],
+                       });
+
+                       if (features.length > 0) {
+                         // show the popup
+                         // Populate the popup and set its coordinates
+                         // based on the feature found.
+
+                         var hoveredFeature = features[0]
+                         var nta_name = hoveredFeature.properties.NTA_Name
+                         var pollutantDescription = hoveredFeature.properties.PreMortal
+                         var ranking = hoveredFeature.properties.PreMor_Ran
+
+
+                         var popupContent = `
+                           <div >
+                                 <b>Premature Deaths</b> </br>
+                                 <b>Neighborhood Name</b>: ${nta_name}<br/>
+                                 <b>Rate </b>: ${pollutantDescription} deaths before the age of 65
+                                 per 100,000 population under 65 years of age)  <br/>
+                                 <b>Neighborhood Ranking</b>: ${ranking} out of 195<br/>
+
+
+                           </div>
+                         `
+
+                         popup.setLngLat(e.lngLat).setHTML(popupContent).addTo(map);
+
+                         // set this lot's polygon feature as the data for the highlight source
+                         map.getSource('highlight-feature').setData(hoveredFeature.geometry);
+
+                         // show the cursor as a pointer
+                         map.getCanvas().style.cursor = 'pointer';
+                       } else {
+                         // remove the Popup
+                         popup.remove();
+
+                         map.getCanvas().style.cursor = '';
+                       }
+
+                     });
 
                   });
 
-                  // Pop up code for the Original Layer (Ozone)
-                  map.on('mousemove', function (e) {
-                    // query for the features under the mouse, but only in the lots layer
-                    var features = map.queryRenderedFeatures(e.point, {
-                        layers: ['ozone-fill'],
-                    });
-// THERE IS PROBABLY A WAY TO DO AN IF-STATEMENT TO FILL IN THE POP-UP
-// IF ID LAYER === "ID-NAME"
-                    if (features.length > 0) {
-                      // show the popup
-                      // Populate the popup and set its coordinates
-                      // based on the feature found.
 
-                      var hoveredFeature = features[0]
-                      var nta_name = hoveredFeature.properties.NTA_Name
-                      var pollutantDescription = hoveredFeature.properties.Ozone
-                      var ranking = hoveredFeature.properties.Ozone_R
-
-
-                      var popupContent = `
-                        <div >
-                              <b>Ozone Pollution</b> </br>
-                              <b>Neighborhood Name</b>: ${nta_name}<br/>
-                              <b>Amount </b>: ${pollutantDescription} ppb <br/>
-                              <b>Neighborhood Ranking</b>: ${ranking} out of 195<br/>
-
-
-                        </div>
-                      `
-
-                      popup.setLngLat(e.lngLat).setHTML(popupContent).addTo(map);
-
-                      // set this lot's polygon feature as the data for the highlight source
-                      map.getSource('highlight-feature').setData(hoveredFeature.geometry);
-
-                      // show the cursor as a pointer
-                      map.getCanvas().style.cursor = 'pointer';
-                    } else {
-                      // remove the Popup
-                      popup.remove();
-
-                      map.getCanvas().style.cursor = '';
-                    }
-
-                  })
 
 
 
