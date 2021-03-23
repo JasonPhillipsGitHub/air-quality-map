@@ -690,6 +690,7 @@ map.on('style.load', function () {
                      map.setLayoutProperty('pm-fill', 'visibility', 'none');
                      map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
                      map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
+
                      map.on('mousemove', function (e) {
 
 
@@ -774,7 +775,7 @@ map.on('style.load', function () {
     map.on('click', function(e) {
       // query for the features under the mouse, but only in our custom layer
       var features = map.queryRenderedFeatures(e.point, {
-          layers: ['nyc-cd'],
+          layers: ['ozone-fill'],
       });
 
       if (features.length > 0 ) {
@@ -782,8 +783,8 @@ map.on('style.load', function () {
         var hoveredFeature = features[0]
 
         // pull out the cd_name and pop2010 properties
-        var cdName = hoveredFeature.properties.cd_name
-        var population_2010 = hoveredFeature.properties.pop2010
+        var cdName = hoveredFeature.properties.NTA_Name
+        var population_2010 = hoveredFeature.properties.Ozone_R
 
         // inject these values into the sidebar
         $('.cdname').text(cdName)
@@ -802,44 +803,5 @@ map.on('style.load', function () {
       map.getCanvas().style.cursor = ''
     })
 
-    // add a click listener for buttons in the sidebar.  On click, fly the map to a specific view
-    $('.fly-button').on('click', function() {
-      // get the 'cd' from the data-cd
-      var cd = $(this).data('cd').toString()
 
-
-      if (cd === 'reset') {
-        // fly to the initial center and zoom
-        map.flyTo({
-          center: INITIAL_CENTER,
-          zoom: INITIAL_ZOOM
-        })
-
-        // disable the reset button
-        $('.reset-button').prop("disabled", true)
-
-        // reset the info container to its default values and show it
-        $('.cdname').text('Click a district for more information')
-        $('.population').text('')
-        $('.info-container').show()
-
-        // show the choropleth layer
-        map.setLayoutProperty('nyc-cd', 'visibility', 'visible')
-      } else {
-
-        // get the geometry for the specified district, set the hightlight source
-        var geom = getGeometry(cd)
-        map.getSource('highlight-feature').setData(geom);
-
-        // enable the reset button
-        $('.reset-button').removeAttr("disabled")
-        // hide the info container
-        $('.info-container').hide()
-
-        // hide the chorpleth layer
-        hideChoroplethLayer()
-
-
-     }
-   })
   })
