@@ -3,7 +3,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoianA1NDg1IiwiYSI6ImNrM2Y3bTN5cDAxemEzaG5ubjM1N
 var map = new mapboxgl.Map({
   container: 'mapContainer', // container ID
   style: 'mapbox://styles/mapbox/dark-v10', // style URL
-  center: [-73.916949,40.682562], // starting position [lng, lat]
+  center: [-73.980760,40.716794], // starting position [lng, lat]
   zoom: 10 // starting zoom
 });
 
@@ -38,33 +38,6 @@ map.on('style.load', function () {
 // layer easier.
 
 
-    // add OZONE choropleth layer to map
-    // colors are from colorbrewer
-    map.addLayer({
-      'id': 'ozone-fill',
-      'type': 'fill',
-      'source': 'nyc-cd',
-       'layout': {},
-      'paint': {
-        'fill-color': [
-          'interpolate',
-          ['linear'],
-          ['get', 'Ozone_R'],
-          0,
-          '#045a8d',
-          50,
-          '#2b8cbe',
-          100,
-          '#74a9cf',
-          150,
-          '#bdc9e1',
-          195,
-          '#f1eef6'
-        ],
-        'fill-outline-color': '#ccc',
-        'fill-opacity': 0.8
-      }
-    }, 'waterway-label');
 
 // add CHILD Hospitalizations due to ASTHMA to map
     map.addLayer({
@@ -260,6 +233,33 @@ map.on('style.load', function () {
                       }, 'waterway-label');
 
 
+                      // add OZONE choropleth layer to map
+                      // colors are from colorbrewer
+                      map.addLayer({
+                        'id': 'ozone-fill',
+                        'type': 'fill',
+                        'source': 'nyc-cd',
+                         'layout': {},
+                        'paint': {
+                          'fill-color': [
+                            'interpolate',
+                            ['linear'],
+                            ['get', 'Ozone_R'],
+                            0,
+                            '#045a8d',
+                            50,
+                            '#2b8cbe',
+                            100,
+                            '#74a9cf',
+                            150,
+                            '#bdc9e1',
+                            195,
+                            '#f1eef6'
+                          ],
+                          'fill-outline-color': '#ccc',
+                          'fill-opacity': 0.8
+                        }
+                      }, 'waterway-label');
 
 
                   // Create a popup, but don't add it to the map yet.
@@ -303,7 +303,7 @@ map.on('style.load', function () {
 
                                            var popupContent = `
                                              <div >
-                                                   <b>Ozone Pollution</b> </br>
+                                                   <h5>Ozone Pollution</h5> </br>
                                                    <b>Neighborhood Name</b>: ${nta_name}<br/>
                                                    <b>Amount </b>: ${pollutantDescription} ppb <br/>
                                                    <b>Neighborhood Ranking</b>: ${ranking} out of 195<br/>
@@ -363,7 +363,7 @@ map.on('style.load', function () {
 
                          var popupContent = `
                            <div >
-                                 <b>Sulfur Dioxide Pollution</b> </br>
+                                 <h5>Sulfur Dioxide Pollution</h5> </br>
                                  <b>Neighborhood Name</b>: ${nta_name}<br/>
                                  <b>Amount </b>: ${pollutantDescription} ppb <br/>
                                  <b>Neighborhood Ranking</b>: ${ranking} out of 195<br/>
@@ -420,7 +420,7 @@ map.on('style.load', function () {
 
                          var popupContent = `
                            <div >
-                                 <b>Black Carbon Pollution</b> </br>
+                                 <h5>Black Carbon Pollution</h5> </br>
                                  <b>Neighborhood Name</b>: ${nta_name}<br/>
                                  <b>Amount </b>: ${pollutantDescription} annual average (absorbance units) <br/>
                                  <b>Neighborhood Ranking</b>: ${ranking} out of 195<br/>
@@ -477,7 +477,7 @@ map.on('style.load', function () {
 
                          var popupContent = `
                            <div >
-                                 <b>Fine Particulate Matter Pollution</b> </br>
+                                 <h5>Fine Particulate Matter Pollution</h5> </br>
                                  <b>Neighborhood Name</b>: ${nta_name}<br/>
                                  <b>Amount </b>: ${pollutantDescription} annual average (micrograms per cubic meter)
 <br/>
@@ -536,7 +536,7 @@ map.on('style.load', function () {
 
                          var popupContent = `
                            <div >
-                                 <b>Nitrogen Dioxide Pollution</b> </br>
+                                 <h5>Nitrogen Dioxide Pollution</h5> </br>
                                  <b>Neighborhood Name</b>: ${nta_name}<br/>
                                  <b>Amount </b>: ${pollutantDescription} ppb <br/>
                                  <b>Neighborhood Ranking</b>: ${ranking} out of 195<br/>
@@ -593,7 +593,7 @@ map.on('style.load', function () {
 
                          var popupContent = `
                            <div >
-                                 <b>Child Asthma Rates</b> </br>
+                                 <h5>Child Asthma Rates</h5> </br>
                                  <b>Neighborhood Name</b>: ${nta_name}<br/>
                                  <b>Rate </b>: ${pollutantDescription} per 100,000 children ages 2-17 continuously enrolled
                                  (for 11 months or more) in Medicaid in 2015
@@ -652,7 +652,7 @@ map.on('style.load', function () {
 
                          var popupContent = `
                            <div >
-                                 <b>Child Asthma-Related Hospitalizations</b> </br>
+                                 <h5>Child Asthma-Related Hospitalizations</h5> </br>
                                  <b>Neighborhood Name</b>: ${nta_name}<br/>
                                  <b>Rate </b>: ${pollutantDescription} asthma hospitalizations
                                  per 10,000 children ages 5-14  <br/>
@@ -710,7 +710,7 @@ map.on('style.load', function () {
 
                          var popupContent = `
                            <div >
-                                 <b>Premature Deaths</b> </br>
+                                 <h5>Premature Deaths</h5> </br>
                                  <b>Neighborhood Name</b>: ${nta_name}<br/>
                                  <b>Rate </b>: ${pollutantDescription} deaths before the age of 65
                                  per 100,000 population under 65 years of age)  <br/>

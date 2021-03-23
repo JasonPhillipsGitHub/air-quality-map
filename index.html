@@ -11,39 +11,44 @@
 </head>
 
 <body>
-  
+
   <div class='main-container'>
 
     <div id='mapContainer'>
 
       <div id='sidebar'>
           <h1>NYC Air Quality Map</h1>
-
-         </br>
       </br>
 
-<p>These are the air pollutants</p>
+<p>Air pollution is a serious problem in New York City, mainly resulting from
+  transportation emissions from cars, trucks, and airplanes. These emissions
+  can have many advesrse health effects on local communities. </br>
+ Click on the buttons below to toggle between different pollutant maps and resulting health effects.
+  Hover over a neighborhood to view more information.</p>
 
-      <div class="btn-group-vertical" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-secondary" id = "ozo" data-toggle="popover"
-      title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Ozone</button>
 
-
-      <button type="button" class="btn btn-secondary" id = "so2">Sulfur Dioxide</button>
-      <button type="button" class="btn btn-secondary" id = "blkcarb">Black Carbon</button>
-      <button type="button" class="btn btn-secondary" id = "pm">Particulate Matter</button>
-      <button type="button" class="btn btn-secondary" id = "no2">Nitrogen Dioxide</button>
+<div class="row">
+  <div class="column">
+    <div class="btn-group-vertical btn-group-sm" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-primary">Pollutants</button>
+        <button type="button" class="btn btn-secondary" id = "ozo">Ozone</button>
+        <button type="button" class="btn btn-secondary" id = "so2">Sulfur Dioxide</button>
+        <button type="button" class="btn btn-secondary" id = "blkcarb">Black Carbon</button>
+        <button type="button" class="btn btn-secondary" id = "pm">Particulate Matter</button>
+        <button type="button" class="btn btn-secondary" id = "no2">Nitrogen Dioxide</button>
     </div>
-  </br>
-
-  <p>  These are the health effects</p>
-    <div class="btn-group-vertical" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-secondary" id = "death">Deaths</button>
-    <button type="button" class="btn btn-secondary" id = "asthma-hosp">Asthma-related </br>Hospitalizations</button>
-    <button type="button" class="btn btn-secondary" id = "asthma-rates">Asthma Rates</button>
+  </div>
+  <div class="column" >
+    <div class="btn-group-vertical btn-group-sm" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-danger">Health Effects</button>
+        <button type="button" class="btn btn-secondary" id = "asthma-rates">Asthma Rates</button>
+        <button type="button" class="btn btn-secondary" id = "asthma-hosp">Asthma-related </br>Hospitalizations</button>
+        <button type="button" class="btn btn-secondary" id = "death">Deaths</button>
     </div>
 
-      </br>
+  </div>
+</div>
+
 
       <p class = "disclaimer"> Disclaimer about the data, when it was sourced, etc</p>
 
