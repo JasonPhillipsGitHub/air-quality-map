@@ -51,15 +51,15 @@ map.on('style.load', function () {
           ['linear'],
           ['get', 'Ozone_R'],
           0,
-          '#f1eef6',
+          '#045a8d',
           50,
-          '#bdc9e1',
+          '#2b8cbe',
           100,
           '#74a9cf',
           150,
-          '#2b8cbe',
+          '#bdc9e1',
           195,
-          '#045a8d'
+          '#f1eef6'
         ],
         'fill-outline-color': '#ccc',
         'fill-opacity': 0.8
@@ -177,7 +177,7 @@ map.on('style.load', function () {
                 }
           }, 'waterway-label');
 
-          // add CHILD ASTHMA rates would are enrolled in Medicaid to map
+          // add Nitrogen Dioxide map
               map.addLayer({
                 'id': 'no2-fill',
                 'type': 'fill',
@@ -205,7 +205,7 @@ map.on('style.load', function () {
                 }
               }, 'waterway-label');
 
-              // add CHILD ASTHMA rates would are enrolled in Medicaid to map
+              // add Sulfur Dioxide to map
                   map.addLayer({
                     'id': 'so2-fill',
                     'type': 'fill',
@@ -231,6 +231,210 @@ map.on('style.load', function () {
                       'fill-opacity': 0.8
                     }
                   }, 'waterway-label');
+
+                  // add Deaths to map
+                      map.addLayer({
+                        'id': 'death-fill',
+                        'type': 'fill',
+                        'source': 'nyc-cd',
+                         'layout': {},
+                        'paint': {
+                          'fill-color': [
+                            'interpolate',
+                            ['linear'],
+                            ['get', 'PreMor_Ran'],
+                            0,
+                            '#fee5d9',
+                            50,
+                            '#fcae91',
+                            100,
+                            '#fb6a4a',
+                            150,
+                            '#de2d26',
+                            195,
+                            '#a50f15'
+                          ],
+                          'fill-outline-color': '#ccc',
+                          'fill-opacity': 0.8
+                        }
+                      }, 'waterway-label');
+
+
+
+
+                  // Create a popup, but don't add it to the map yet.
+                  var popup = new mapboxgl.Popup({
+                    closeButton: false,
+                    closeOnClick: false
+                  });
+
+
+// Add in all the button click actions, hiding all other layers except for the one that's clicked
+                  $('#ozo').on('click', function(){
+                    // hide the restaurant-fill-layer on demand
+                    map.setLayoutProperty('ozone-fill', 'visibility', 'visible');
+                     map.setLayoutProperty('so2-fill', 'visibility', 'none');
+                     map.setLayoutProperty('black-carbon-fill', 'visibility', 'none');
+                     map.setLayoutProperty('no2-fill', 'visibility', 'none');
+                     map.setLayoutProperty('pm-fill', 'visibility', 'none');
+                     map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
+                     map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
+                     map.setLayoutProperty('death-fill', 'visibility', 'none');
+
+                  });
+
+                  $('#so2').on('click', function(){
+                    // hide the restaurant-fill-layer on demand
+                     map.setLayoutProperty('so2-fill', 'visibility', 'visible');
+                     map.setLayoutProperty('ozone-fill', 'visibility', 'none');
+                     map.setLayoutProperty('black-carbon-fill', 'visibility', 'none');
+                     map.setLayoutProperty('pm-fill', 'visibility', 'none');
+                     map.setLayoutProperty('no2-fill', 'visibility', 'none');
+                     map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
+                     map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
+                     map.setLayoutProperty('death-fill', 'visibility', 'none');
+
+
+                  });
+
+                  $('#blkcarb').on('click', function(){
+                    // hide the restaurant-fill-layer on demand
+                     map.setLayoutProperty('black-carbon-fill', 'visibility', 'visible');
+                     map.setLayoutProperty('so2-fill', 'visibility', 'none');
+                     map.setLayoutProperty('ozone-fill', 'visibility', 'none');
+                     map.setLayoutProperty('pm-fill', 'visibility', 'none');
+                     map.setLayoutProperty('no2-fill', 'visibility', 'none');
+                     map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
+                     map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
+                     map.setLayoutProperty('death-fill', 'visibility', 'none');
+
+
+                  });
+
+                  $('#pm').on('click', function(){
+                    // hide the restaurant-fill-layer on demand
+                     map.setLayoutProperty('pm-fill', 'visibility', 'visible');
+                     map.setLayoutProperty('so2-fill', 'visibility', 'none');
+                     map.setLayoutProperty('ozone-fill', 'visibility', 'none');
+                     map.setLayoutProperty('black-carbon-fill', 'visibility', 'none');
+                     map.setLayoutProperty('no2-fill', 'visibility', 'none');
+                     map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
+                     map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
+                     map.setLayoutProperty('death-fill', 'visibility', 'none');
+
+
+                  });
+
+
+                  $('#no2').on('click', function(){
+                    // hide the restaurant-fill-layer on demand
+                     map.setLayoutProperty('no2-fill', 'visibility', 'visible');
+                     map.setLayoutProperty('so2-fill', 'visibility', 'none');
+                     map.setLayoutProperty('ozone-fill', 'visibility', 'none');
+                     map.setLayoutProperty('black-carbon-fill', 'visibility', 'none');
+                     map.setLayoutProperty('pm-fill', 'visibility', 'none');
+                     map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
+                     map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
+                     map.setLayoutProperty('death-fill', 'visibility', 'none');
+
+
+                  });
+
+                  $('#asthma-rates').on('click', function(){
+                    // hide the restaurant-fill-layer on demand
+                     map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'visible');
+                     map.setLayoutProperty('no2-fill', 'visibility', 'none');
+                     map.setLayoutProperty('so2-fill', 'visibility', 'none');
+                     map.setLayoutProperty('ozone-fill', 'visibility', 'none');
+                     map.setLayoutProperty('black-carbon-fill', 'visibility', 'none');
+                     map.setLayoutProperty('pm-fill', 'visibility', 'none');
+                     map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
+                     map.setLayoutProperty('death-fill', 'visibility', 'none');
+
+
+                  });
+
+                  $('#asthma-hosp').on('click', function(){
+                    // hide the restaurant-fill-layer on demand
+                    map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'visible');
+                     map.setLayoutProperty('no2-fill', 'visibility', 'none');
+                     map.setLayoutProperty('so2-fill', 'visibility', 'none');
+                     map.setLayoutProperty('ozone-fill', 'visibility', 'none');
+                     map.setLayoutProperty('black-carbon-fill', 'visibility', 'none');
+                     map.setLayoutProperty('pm-fill', 'visibility', 'none');
+                     map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
+                     map.setLayoutProperty('death-fill', 'visibility', 'none');
+
+
+                  });
+
+                  $('#death').on('click', function(){
+                    // hide the restaurant-fill-layer on demand
+                    map.setLayoutProperty('death-fill', 'visibility', 'visible');
+                     map.setLayoutProperty('no2-fill', 'visibility', 'none');
+                     map.setLayoutProperty('so2-fill', 'visibility', 'none');
+                     map.setLayoutProperty('ozone-fill', 'visibility', 'none');
+                     map.setLayoutProperty('black-carbon-fill', 'visibility', 'none');
+                     map.setLayoutProperty('pm-fill', 'visibility', 'none');
+                     map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
+                     map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
+
+
+                  });
+
+                  // Pop up code for the Original Layer (Ozone)
+                  map.on('mousemove', function (e) {
+                    // query for the features under the mouse, but only in the lots layer
+                    var features = map.queryRenderedFeatures(e.point, {
+                        layers: ['ozone-fill'],
+                    });
+
+                    if (features.length > 0) {
+                      // show the popup
+                      // Populate the popup and set its coordinates
+                      // based on the feature found.
+
+                      var hoveredFeature = features[0]
+                      var nta_name = hoveredFeature.properties.NTA_Name
+                      var pollutantDescription = hoveredFeature.properties.Ozone
+                      var ranking = hoveredFeature.properties.Ozone_R
+
+
+                      var popupContent = `
+                        <div >
+                              <b>Ozone Pollution</b> </br>
+                              <b>Neighborhood Name</b>: ${nta_name}<br/>
+                              <b>Amount </b>: ${pollutantDescription} ppb <br/>
+                              <b>Neighborhood Ranking</b>: ${ranking} out of 195<br/>
+
+
+                        </div>
+                      `
+
+                      popup.setLngLat(e.lngLat).setHTML(popupContent).addTo(map);
+
+                      // set this lot's polygon feature as the data for the highlight source
+                      map.getSource('highlight-feature').setData(hoveredFeature.geometry);
+
+                      // show the cursor as a pointer
+                      map.getCanvas().style.cursor = 'pointer';
+                    } else {
+                      // remove the Popup
+                      popup.remove();
+
+                      map.getCanvas().style.cursor = '';
+                    }
+
+                  })
+
+
+
+
+
+
+
+
+
     // add an empty data source, which we will use to highlight the geometry the user has selected
     map.addSource('highlight-feature', {
       type: 'geojson',

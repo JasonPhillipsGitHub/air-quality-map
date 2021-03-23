@@ -1,12 +1,13 @@
-html, body, .container, #sidebar, #mapContainer {
+html, body, .main-container, #sidebar, #mapContainer {
   height: 100%;
   margin: 0;
 }
 
 h1{
   padding-left: 10px;
+  color: white;
 }
-.container {
+.main-container {
   display: flex;
 }
 
@@ -36,52 +37,14 @@ h1{
   padding: 5px;
   font-style: italic;
   font-size: 12px;
+  color: white;
 }
 
 footer{
   padding:5px;
-}
-
-img{
-  height:200px;
-  width:320px;
-}
-
-
-/* Dropdown Button */
-.dropbtn {
-  background-color: #4CAF50;
   color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
 }
 
-.resetbutton {
-  background-color: #29AFEA;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-
-}
-
-.reset {
-  position: relative;
-  display: inline-block;
-  left: 60px;
-}
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41}
-
-.reset:hover .resetbutton {background-color: #3262a8}
-
-
-.open_status{
-  color:blue;
+.btn-group-vertical{
+  padding: 30px;
 }
