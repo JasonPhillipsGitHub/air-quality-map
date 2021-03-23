@@ -78,15 +78,15 @@ map.on('style.load', function () {
           ['linear'],
           ['get', 'H_ChdAst_R'],
           0,
-          '#fef0d9',
+          '#b30000',
           50,
-          '#fdcc8a',
+          '#e34a33',
           100,
           '#fc8d59',
           150,
-          '#e34a33',
+          '#fdcc8a',
           195,
-          '#b30000'
+          '#fef0d9'
         ],
         'fill-outline-color': '#ccc',
         'fill-opacity': 0.8
@@ -105,15 +105,15 @@ map.on('style.load', function () {
               ['linear'],
               ['get', 'M_ChdAst_R'],
               0,
-              '#f2f0f7',
+              '#54278f',
               50,
-              '#cbc9e2',
+              '#756bb1',
               100,
               '#9e9ac8',
               150,
-              '#756bb1',
+              '#cbc9e2',
               195,
-              '#54278f'
+              '#f2f0f7'
             ],
             'fill-outline-color': '#ccc',
             'fill-opacity': 0.8
@@ -132,15 +132,15 @@ map.on('style.load', function () {
                   ['linear'],
                   ['get', 'BlkCarb_R'],
                   0,
-                  '#f7f7f7',
+                  '#252525',
                   50,
-                  '#cccccc',
+                  '#636363',
                   100,
                   '#969696',
                   150,
-                  '#636363',
+                  '#cccccc',
                   195,
-                  '#252525'
+                  '#f7f7f7'
 
                 ],
                 'fill-outline-color': '#ccc',
@@ -161,15 +161,15 @@ map.on('style.load', function () {
                   ['linear'],
                   ['get', 'PM25_R'],
                               0,
-                              '#feebe2',
+                              '#7a0177',
                               50,
-                              '#fbb4b9',
+                              '#c51b8a',
                               100,
                               '#f768a1',
                               150,
-                              '#c51b8a',
+                              '#fbb4b9',
                               195,
-                              '#7a0177'
+                              '#feebe2'
 
                     ],
                 'fill-outline-color': '#ccc',
@@ -189,15 +189,15 @@ map.on('style.load', function () {
                     ['linear'],
                     ['get', 'NO_R'],
                     0,
-                    '#f6eff7',
+                    '#016c59',
                     50,
-                    '#bdc9e1',
+                    '#1c9099',
                     100,
                     '#67a9cf',
                     150,
-                    '#1c9099',
+                    '#bdc9e1',
                     195,
-                    '#016c59'
+                    '#f6eff7'
 
                   ],
                   'fill-outline-color': '#ccc',
@@ -217,15 +217,15 @@ map.on('style.load', function () {
                         ['linear'],
                         ['get', 'Sul2Ox_R'],
                         0,
-                        '#ffffd4',
+                        '#993404',
                         50,
-                        '#fed98e',
+                        '#d95f0e',
                         100,
                         '#fe9929',
                         150,
-                        '#d95f0e',
+                        '#fed98e',
                         195,
-                        '#993404'
+                        '#ffffd4'
                       ],
                       'fill-outline-color': '#ccc',
                       'fill-opacity': 0.8
@@ -244,15 +244,15 @@ map.on('style.load', function () {
                             ['linear'],
                             ['get', 'PreMor_Ran'],
                             0,
-                            '#fee5d9',
+                            '#a50f15',
                             50,
-                            '#fcae91',
+                            '#de2d26',
                             100,
                             '#fb6a4a',
                             150,
-                            '#de2d26',
+                            '#fcae91',
                             195,
-                            '#a50f15'
+                            '#fee5d9'
                           ],
                           'fill-outline-color': '#ccc',
                           'fill-opacity': 0.8
@@ -388,7 +388,8 @@ map.on('style.load', function () {
                     var features = map.queryRenderedFeatures(e.point, {
                         layers: ['ozone-fill'],
                     });
-
+// THERE IS PROBABLY A WAY TO DO AN IF-STATEMENT TO FILL IN THE POP-UP
+// IF ID LAYER === "ID-NAME"
                     if (features.length > 0) {
                       // show the popup
                       // Populate the popup and set its coordinates
