@@ -346,10 +346,8 @@ map.on('style.load', function() {
 
     });
 
-
-
-
   });
+
 
   $('#so2').on('click', function() {
     // hide the restaurant-fill-layer on demand
@@ -799,7 +797,10 @@ map.on('style.load', function() {
   });
 
 
-
+  // On Hover over Button, add more information about the pollutant via a button popup
+$('#ozo').on('hover', function(){
+  console.log('hello')
+});
 
 
 
@@ -828,29 +829,6 @@ map.on('style.load', function() {
   });
 
 
-  // listen for a click on the map and show info in the sidebar
-  map.on('click', function(e) {
-    // query for the features under the mouse, but only in our custom layer
-    var features = map.queryRenderedFeatures(e.point, {
-      layers: ['ozone-fill'],
-    });
-
-    if (features.length > 0) {
-      // get the feature under the mouse pointer
-      var hoveredFeature = features[0]
-
-      // pull out the cd_name and pop2010 properties
-      var cdName = hoveredFeature.properties.NTA_Name
-      var population_2010 = hoveredFeature.properties.Ozone_R
-
-      // inject these values into the sidebar
-      $('.cdname').text(cdName)
-      $('.population').text(`2010 Population: ${numeral(population_2010).format('0.00a')}`)
-
-      // set this lot's polygon feature as the data for the highlight source
-      map.getSource('highlight-feature').setData(hoveredFeature.geometry);
-    }
-  })
 
   // when the user hovers over our nyc-cd layer make the mouse cursor a pointer
   map.on('mouseenter', 'nyc-cd', () => {

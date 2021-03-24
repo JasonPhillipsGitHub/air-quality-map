@@ -21,39 +21,19 @@
         <h1>NYC Air Quality Map</h1>
         </br>
 
-        <p>Air pollution is a serious problem in New York City, mainly resulting from
+        <p class = "intro"> Air pollution is a serious problem in New York City, mainly resulting from
           transportation emissions from cars, trucks, and airplanes. These emissions
           can have many advesrse health effects on local communities. </br>
-          Click on the buttons below to toggle between different pollutant maps and resulting health effects.
+          Use the menu on the right to toggle between different pollutant maps and resulting health effects.
           Hover over a neighborhood to view more information.</p>
 
-
-        <div class="row">
-          <div class="column">
-            <div class="btn-group-vertical btn-group-sm" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-outline-primary">Pollutants</button>
-              <button type="button" class="btn btn-secondary" id="ozo">Ozone</button>
-              <button type="button" class="btn btn-secondary" id="so2">Sulfur Dioxide</button>
-              <button type="button" class="btn btn-secondary" id="blkcarb">Black Carbon</button>
-              <button type="button" class="btn btn-secondary" id="pm">Particulate Matter</button>
-              <button type="button" class="btn btn-secondary" id="no2">Nitrogen Dioxide</button>
-            </div>
-          </div>
-          <div class="column">
-            <div class="btn-group-vertical btn-group-sm" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-outline-danger">Health Effects</button>
-              <button type="button" class="btn btn-secondary" id="asthma-rates">Asthma Rates</button>
-              <button type="button" class="btn btn-secondary" id="asthma-hosp">Asthma-related </br>Hospitalizations</button>
-              <button type="button" class="btn btn-secondary" id="death">Deaths</button>
-            </div>
-
-          </div>
-        </div>
+<div class = "infobox">
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</div>
 
         <div class="row2" id = "legendbar">
-          <!-SYNTAX MATTERS for PRE tag. DO NOT TOUCH!->
-          <pre>                  Neighborhood Ranking
-  1 (highest value)                      195 (lowest value)  </pre>
+          <p>                  Neighborhood Ranking
+  1 (highest value)                      195 (lowest value)  </p>
           <div class="column2" id = "legendbar1">
           </div>
           <div class="column2" id = "legendbar2">
@@ -73,6 +53,21 @@
         </footer>
 
       </div>
+
+        <div class = "layerselectorcontainer">
+          <div class="btn-group-vertical btn-group-sm" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-primary">Pollutants</button>
+            <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." id="ozo">Ozone</button>
+            <button type="button" class="btn btn-secondary" id="so2">Sulfur Dioxide</button>
+            <button type="button" class="btn btn-secondary" id="blkcarb">Black Carbon</button>
+            <button type="button" class="btn btn-secondary" id="pm">Particulate Matter</button>
+            <button type="button" class="btn btn-secondary" id="no2">Nitrogen Dioxide</button>
+            <button type="button" class="btn btn-danger">Health Effects</button>
+            <button type="button" class="btn btn-secondary" id="asthma-rates">Asthma Rates</button>
+            <button type="button" class="btn btn-secondary" id="asthma-hosp">Asthma-related </br>Hospitalizations</button>
+            <button type="button" class="btn btn-secondary" id="death">Deaths</button>
+          </div>
+        </div>
 
 
     </div>
