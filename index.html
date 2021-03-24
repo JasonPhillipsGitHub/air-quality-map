@@ -1,6 +1,7 @@
 <!doctype html>
 
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
 
@@ -17,45 +18,60 @@
     <div id='mapContainer'>
 
       <div id='sidebar'>
-          <h1>NYC Air Quality Map</h1>
-      </br>
+        <h1>NYC Air Quality Map</h1>
+        </br>
 
-<p>Air pollution is a serious problem in New York City, mainly resulting from
-  transportation emissions from cars, trucks, and airplanes. These emissions
-  can have many advesrse health effects on local communities. </br>
- Click on the buttons below to toggle between different pollutant maps and resulting health effects.
-  Hover over a neighborhood to view more information.</p>
-
-
-<div class="row">
-  <div class="column">
-    <div class="btn-group-vertical btn-group-sm" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-outline-primary">Pollutants</button>
-        <button type="button" class="btn btn-secondary" id = "ozo">Ozone</button>
-        <button type="button" class="btn btn-secondary" id = "so2">Sulfur Dioxide</button>
-        <button type="button" class="btn btn-secondary" id = "blkcarb">Black Carbon</button>
-        <button type="button" class="btn btn-secondary" id = "pm">Particulate Matter</button>
-        <button type="button" class="btn btn-secondary" id = "no2">Nitrogen Dioxide</button>
-    </div>
-  </div>
-  <div class="column" >
-    <div class="btn-group-vertical btn-group-sm" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-outline-danger">Health Effects</button>
-        <button type="button" class="btn btn-secondary" id = "asthma-rates">Asthma Rates</button>
-        <button type="button" class="btn btn-secondary" id = "asthma-hosp">Asthma-related </br>Hospitalizations</button>
-        <button type="button" class="btn btn-secondary" id = "death">Deaths</button>
-    </div>
-
-  </div>
-</div>
+        <p>Air pollution is a serious problem in New York City, mainly resulting from
+          transportation emissions from cars, trucks, and airplanes. These emissions
+          can have many advesrse health effects on local communities. </br>
+          Click on the buttons below to toggle between different pollutant maps and resulting health effects.
+          Hover over a neighborhood to view more information.</p>
 
 
-      <p class = "disclaimer"> Disclaimer about the data, when it was sourced, etc</p>
+        <div class="row">
+          <div class="column">
+            <div class="btn-group-vertical btn-group-sm" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-outline-primary">Pollutants</button>
+              <button type="button" class="btn btn-secondary" id="ozo">Ozone</button>
+              <button type="button" class="btn btn-secondary" id="so2">Sulfur Dioxide</button>
+              <button type="button" class="btn btn-secondary" id="blkcarb">Black Carbon</button>
+              <button type="button" class="btn btn-secondary" id="pm">Particulate Matter</button>
+              <button type="button" class="btn btn-secondary" id="no2">Nitrogen Dioxide</button>
+            </div>
+          </div>
+          <div class="column">
+            <div class="btn-group-vertical btn-group-sm" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-outline-danger">Health Effects</button>
+              <button type="button" class="btn btn-secondary" id="asthma-rates">Asthma Rates</button>
+              <button type="button" class="btn btn-secondary" id="asthma-hosp">Asthma-related </br>Hospitalizations</button>
+              <button type="button" class="btn btn-secondary" id="death">Deaths</button>
+            </div>
 
+          </div>
+        </div>
 
-      <footer>Data retrieved from <a href ="https://prattcenter.net/resources/neighborhood_data_portal">
-      Pratt Center for Community Development Neighborhood Data Portal </a>
-      </footer>
+        <div class="row2" id = "legendbar">
+          <!-SYNTAX MATTERS for PRE tag. DO NOT TOUCH!->
+          <pre>                  Neighborhood Ranking
+  1 (highest value)                      195 (lowest value)  </pre>
+          <div class="column2" id = "legendbar1">
+          </div>
+          <div class="column2" id = "legendbar2">
+          </div>
+          <div class="column2" id = "legendbar3">
+          </div>
+          <div class="column2" id = "legendbar4">
+          </div>
+          <div class="column2" id = "legendbar5">
+          </div>
+        </div>
+
+        <p class="disclaimer"> Disclaimer about the data, when it was sourced, etc</p>
+
+        <footer>Data retrieved from <a href="https://prattcenter.net/resources/neighborhood_data_portal">
+            Pratt Center for Community Development Neighborhood Data Portal </a>
+        </footer>
+
       </div>
 
 
@@ -65,11 +81,9 @@
   </div>
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
- <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
-  <script
-    src="https://code.jquery.com/jquery-3.5.1.min.js"
-    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-    crossorigin="anonymous"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="js/scripts.js"></script>
 </body>
+
 </html>
