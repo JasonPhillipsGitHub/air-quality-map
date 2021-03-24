@@ -17,7 +17,13 @@ map.addControl(
 
 // colorsets for legendbar
 var ozonecolors = ['#f1eef6','#bdc9e1','#74a9cf','#2b8cbe','#045a8d'];
-var childhospcolors =
+var childhospcolors = ['#fef0d9','#fdcc8a','#fc8d59','#e34a33','#b30000'];
+var childasthmacolors = ['#f2f0f7','#cbc9e2','#9e9ac8','#756bb1','#54278f'];
+var blackcarboncolors = ['#f7f7f7','#cccccc','#969696','#636363','#252525'];
+var pmcolors = ['#feebe2','#fbb4b9','#f768a1','#c51b8a','#7a0177'];
+var no2colors = ['#f6eff7','#bdc9e1','#67a9cf','#1c9099','#016c59'];
+var so2colors = ['#ffffd4','#fed98e','#fe9929','#d95f0e','#993404'];
+var deathcolors = ['#fee5d9','#fcae91','#fb6a4a','#de2d26','#a50f15'];
 // wait for the initial mapbox style to load before loading our own data
 map.on('style.load', function() {
 
@@ -355,6 +361,12 @@ map.on('style.load', function() {
     map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
     map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
     map.setLayoutProperty('death-fill', 'visibility', 'none');
+    // Adjust Legend
+    $('#legendbar1').css({'background-color': so2colors[4] });
+    $('#legendbar2').css({'background-color': so2colors[3] });
+    $('#legendbar3').css({'background-color': so2colors[2] });
+    $('#legendbar4').css({'background-color': so2colors[1] });
+    $('#legendbar5').css({'background-color': so2colors[0] });
     map.on('mousemove', function(e) {
 
 
@@ -412,6 +424,12 @@ map.on('style.load', function() {
     map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
     map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
     map.setLayoutProperty('death-fill', 'visibility', 'none');
+    // Adjust Legend
+    $('#legendbar1').css({'background-color': blackcarboncolors[4] });
+    $('#legendbar2').css({'background-color': blackcarboncolors[3] });
+    $('#legendbar3').css({'background-color': blackcarboncolors[2] });
+    $('#legendbar4').css({'background-color': blackcarboncolors[1] });
+    $('#legendbar5').css({'background-color': blackcarboncolors[0] });
     map.on('mousemove', function(e) {
 
 
@@ -469,6 +487,12 @@ map.on('style.load', function() {
     map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
     map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
     map.setLayoutProperty('death-fill', 'visibility', 'none');
+    // Adjust Legend
+    $('#legendbar1').css({'background-color': pmcolors[4] });
+    $('#legendbar2').css({'background-color': pmcolors[3] });
+    $('#legendbar3').css({'background-color': pmcolors[2] });
+    $('#legendbar4').css({'background-color': pmcolors[1] });
+    $('#legendbar5').css({'background-color': pmcolors[0] });
     map.on('mousemove', function(e) {
 
 
@@ -528,6 +552,12 @@ map.on('style.load', function() {
     map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
     map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
     map.setLayoutProperty('death-fill', 'visibility', 'none');
+    // Adjust Legend
+    $('#legendbar1').css({'background-color': no2colors[4] });
+    $('#legendbar2').css({'background-color': no2colors[3] });
+    $('#legendbar3').css({'background-color': no2colors[2] });
+    $('#legendbar4').css({'background-color': no2colors[1] });
+    $('#legendbar5').css({'background-color': no2colors[0] });
     map.on('mousemove', function(e) {
 
 
@@ -585,6 +615,12 @@ map.on('style.load', function() {
     map.setLayoutProperty('pm-fill', 'visibility', 'none');
     map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
     map.setLayoutProperty('death-fill', 'visibility', 'none');
+    // Adjust Legend
+    $('#legendbar1').css({'background-color': childasthmacolors[4] });
+    $('#legendbar2').css({'background-color': childasthmacolors[3] });
+    $('#legendbar3').css({'background-color': childasthmacolors[2] });
+    $('#legendbar4').css({'background-color': childasthmacolors[1] });
+    $('#legendbar5').css({'background-color': childasthmacolors[0] });
     map.on('mousemove', function(e) {
 
 
@@ -644,6 +680,12 @@ map.on('style.load', function() {
     map.setLayoutProperty('pm-fill', 'visibility', 'none');
     map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
     map.setLayoutProperty('death-fill', 'visibility', 'none');
+    // Adjust Legend
+    $('#legendbar1').css({'background-color': childhospcolors[4] });
+    $('#legendbar2').css({'background-color': childhospcolors[3] });
+    $('#legendbar3').css({'background-color': childhospcolors[2] });
+    $('#legendbar4').css({'background-color': childhospcolors[1] });
+    $('#legendbar5').css({'background-color': childhospcolors[0] });
     map.on('mousemove', function(e) {
 
 
@@ -702,7 +744,12 @@ map.on('style.load', function() {
     map.setLayoutProperty('pm-fill', 'visibility', 'none');
     map.setLayoutProperty('child-medicaid-asthma-fill', 'visibility', 'none');
     map.setLayoutProperty('child-hosp-asthma-fill', 'visibility', 'none');
-
+    // Adjust Legend
+    $('#legendbar1').css({'background-color': deathcolors[4] });
+    $('#legendbar2').css({'background-color': deathcolors[3] });
+    $('#legendbar3').css({'background-color': deathcolors[2] });
+    $('#legendbar4').css({'background-color': deathcolors[1] });
+    $('#legendbar5').css({'background-color': deathcolors[0] });
     map.on('mousemove', function(e) {
 
 
