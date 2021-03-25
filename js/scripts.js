@@ -24,6 +24,31 @@ var pmcolors = ['#feebe2','#fbb4b9','#f768a1','#c51b8a','#7a0177'];
 var no2colors = ['#f6eff7','#bdc9e1','#67a9cf','#1c9099','#016c59'];
 var so2colors = ['#ffffd4','#fed98e','#fe9929','#d95f0e','#993404'];
 var deathcolors = ['#fee5d9','#fcae91','#fb6a4a','#de2d26','#a50f15'];
+
+// pollutant descriptions to inject into sidebar
+var ozonedescription = [
+  'Ozone is a gas made up of oxygen that can be good or bad depending on where in the atmosphere it is. Ground level ozone is created when pollutants emitted by cars, power plants, and other sources chemically react in the presence of sunlight. Breathing elevated concentrations of ozone can cause chest pain, coughing, throat irritation, and airway inflammation. It can worsen bronchitis, emphysema, and asthma. Safe amounts of ozone are between 0 - 50 parts per billion (ppb)'];
+var so2description = [
+  'Sulfur dioxide gets emitted via the burning of fossil fuels and can contribute to respiratory illness by making breathing more difficult, especially for children, the elderly, and those with pre-existing conditions. Longer exposures can aggravate existing heart and lung conditions, as well. It also produces smog and acid rain, effecting plants, animals, and sensitive ecosystems. Safe amounts of SO2 are between 0 - 75 parts per billion (ppb)'];
+var no2description = [
+  'NO2 can irritate airways in the human respiratory system. Such exposures over short periods can cause difficulty breathing. Longer exposures to elevated concentrations of NO2 may contribute to the development of asthma and potentially increase susceptibility to respiratory infections. People with asthma, as well as children and the elderly are generally at greater risk for the health effects of NO2. Safe amounts of NO2 are between 0 - 53 parts per billion (ppb)'];
+var pmdescription = [
+  'Particulate matter is a mixture of solid particles and liquid droplets found in the air. Some particles are larger (dust, dirt, soot, or smoke) and others are microscopic. Particles less than 2.5 micrometers in diameter, also known as fine particles or PM2.5, pose the greatest risk to health as they can get deep into your lungs or bloodstream, causing irregular breathing and heart complications, sometimes resulting in premature death. Safe amounts of PM25 are between 0 - 12 micrograms per cubic meter'
+];
+var blackcarbondescription = [
+  'Black carbon is the sooty black material emitted from gas and diesel engines, coal-fired power plants, and other sources that burn fossil fuel. Inhalation of black carbon is associated with health problems including respiratory and cardiovascular disease, cancer, and even birth defects.'
+];
+var childhospdescription = [
+  'Asthma is a common health impact of long-term exposure to air pollutants. Asthma-related hospitalizations are also more likely to increase with prolonged exposure, particularly for vulnerable populations such as the elderly and young children.'
+];
+var childasthmadescription = [
+  'Asthma is a common health impact of long-term exposure to air pollutants, particularly for children. Often times, air quality is correlated with low income neighborhoods, leaving children in underserved communities most at risk for respiratory illnesses.'
+];
+var deathdescription = [
+  'Premature mortality (deaths before the age of 65 per 100,000 population under 65 years of age) is a possible result of long-term exposure to air pollutants. While all of the deaths are not solely attributed to air quality, it is important to notice the trending areas of the city that seem to have the most negative health impacts and the worst air quality.'
+];
+
+
 // wait for the initial mapbox style to load before loading our own data
 map.on('style.load', function() {
 
@@ -297,8 +322,10 @@ map.on('style.load', function() {
     $('#legendbar3').css({'background-color': ozonecolors[2] });
     $('#legendbar4').css({'background-color': ozonecolors[1] });
     $('#legendbar5').css({'background-color': ozonecolors[0] });
-
-
+    //Inject pollutant header into the infobox
+    $('#subjecthead').text('Ozone');
+    // Inject description into the sidebar
+    $('#infofill').text(ozonedescription);
 
     // Pop up code for the Ozone. Have to nest inside this click function so that
     // the pop-up content will change as the user clicks through the different layers
@@ -365,6 +392,11 @@ map.on('style.load', function() {
     $('#legendbar3').css({'background-color': so2colors[2] });
     $('#legendbar4').css({'background-color': so2colors[1] });
     $('#legendbar5').css({'background-color': so2colors[0] });
+    //Inject pollutant header into the infobox
+    $('#subjecthead').text('Sulfur Dioxide');
+    // Inject description into the sidebar
+    $('#infofill').text(so2description);
+
     map.on('mousemove', function(e) {
 
 
@@ -428,6 +460,10 @@ map.on('style.load', function() {
     $('#legendbar3').css({'background-color': blackcarboncolors[2] });
     $('#legendbar4').css({'background-color': blackcarboncolors[1] });
     $('#legendbar5').css({'background-color': blackcarboncolors[0] });
+    //Inject pollutant header into the infobox
+    $('#subjecthead').text('Black Carbon');
+    // Inject description into the sidebar
+    $('#infofill').text(blackcarbondescription);
     map.on('mousemove', function(e) {
 
 
@@ -491,6 +527,10 @@ map.on('style.load', function() {
     $('#legendbar3').css({'background-color': pmcolors[2] });
     $('#legendbar4').css({'background-color': pmcolors[1] });
     $('#legendbar5').css({'background-color': pmcolors[0] });
+    //Inject pollutant header into the infobox
+    $('#subjecthead').text('Fine Particulate Matter');
+    // Inject description into the sidebar
+    $('#infofill').text(pmdescription);
     map.on('mousemove', function(e) {
 
 
@@ -556,6 +596,10 @@ map.on('style.load', function() {
     $('#legendbar3').css({'background-color': no2colors[2] });
     $('#legendbar4').css({'background-color': no2colors[1] });
     $('#legendbar5').css({'background-color': no2colors[0] });
+    //Inject pollutant header into the infobox
+    $('#subjecthead').text('Nitrogen Dioxide');
+    // Inject description into the sidebar
+    $('#infofill').text(no2description);
     map.on('mousemove', function(e) {
 
 
@@ -619,6 +663,11 @@ map.on('style.load', function() {
     $('#legendbar3').css({'background-color': childasthmacolors[2] });
     $('#legendbar4').css({'background-color': childasthmacolors[1] });
     $('#legendbar5').css({'background-color': childasthmacolors[0] });
+
+    //Inject pollutant header into the infobox
+    $('#subjecthead').text('Child Asthma Rates');
+    // Inject description into the sidebar
+    $('#infofill').text(childasthmadescription);
     map.on('mousemove', function(e) {
 
 
@@ -684,6 +733,10 @@ map.on('style.load', function() {
     $('#legendbar3').css({'background-color': childhospcolors[2] });
     $('#legendbar4').css({'background-color': childhospcolors[1] });
     $('#legendbar5').css({'background-color': childhospcolors[0] });
+    //Inject pollutant header into the infobox
+    $('#subjecthead').text('Child Asthma-Related Hospitalizations');
+    // Inject description into the sidebar
+    $('#infofill').text(childhospdescription);
     map.on('mousemove', function(e) {
 
 
@@ -748,6 +801,10 @@ map.on('style.load', function() {
     $('#legendbar3').css({'background-color': deathcolors[2] });
     $('#legendbar4').css({'background-color': deathcolors[1] });
     $('#legendbar5').css({'background-color': deathcolors[0] });
+    //Inject pollutant header into the infobox
+    $('#subjecthead').text('Premature Deaths');
+    // Inject description into the sidebar
+    $('#infofill').text(deathdescription);
     map.on('mousemove', function(e) {
 
 
