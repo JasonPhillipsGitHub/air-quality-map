@@ -12,11 +12,11 @@ h1 {
   display: flex;
 }
 
-p{
+p {
   color: white;
 }
 
-.intro{
+.intro {
   padding: 10px;
 }
 
@@ -34,8 +34,6 @@ p{
   overflow: visible;
   position: relative;
 }
-
-
 
 .row:after {
   content: "";
@@ -55,44 +53,41 @@ p{
   clear: both;
 }
 
-
-
 footer {
   color: white;
-font-size: 8px;
-padding: 10px;
+  font-size: 8px;
+  padding: 10px;
 }
 
 .btn-group-vertical {
   padding: 10px;
 }
 
-.layerselectorcontainer{
+.layerselectorcontainer {
   z-index: 2;
-position:absolute;
-right:5px;
-top:70px;
-
+  position: absolute;
+  right: 5px;
+  top: 70px;
 }
 
-.infobox{
+.infobox {
   width: 350px;
-  height:200px;
+  height: 200px;
   color: white;
   padding-left: 10px;
 }
 
-#legendbar{
+#legendbar {
   padding: 10px;
 }
 
-.rank{
+.rank {
   font-style: oblique;
   font-weight: bold;
   font-size: 12px;
 }
 
-.ranknumbers{
+.ranknumbers {
   font-style: oblique;
   font-size: 10px;
 }
