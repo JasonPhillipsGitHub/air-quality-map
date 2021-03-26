@@ -4,7 +4,7 @@ html, body, .main-container, #sidebar, #mapContainer {
 }
 
 h1 {
-  padding-left: 10px;
+  padding: 20px;
   color: white;
 }
 
@@ -21,10 +21,10 @@ p {
 }
 
 #sidebar {
-  background-opacity: 20%;
+  background-opacity: 90%;
   width: 380px;
   flex-grow: 1;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(40px);
   z-index: 2;
   position: absolute;
 }
@@ -90,4 +90,19 @@ footer {
 .ranknumbers {
   font-style: oblique;
   font-size: 10px;
+}
+#legendbar1{
+  background-color: #045a8d;
+}
+#legendbar2{
+  background-color: #2b8cbe;
+}
+#legendbar3{
+  background-color: #74a9cf;
+}
+#legendbar4{
+  background-color: #bdc9e1;
+}
+#legendbar5{
+  background-color: #f1eef6;
 }

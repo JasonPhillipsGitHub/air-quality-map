@@ -56,16 +56,11 @@ var deathdescription = [
 // wait for the initial mapbox style to load before loading our own data
 map.on('style.load', function() {
 
-  // add a geojson source for nyc community districts with population data
+  // add a geojson source
   map.addSource('nyc-cd', {
     type: 'geojson',
     data: 'data/health-data-4.geojson'
   });
-
-
-
-
-  // DOUBLE CHECK THE ORDER OF 195 (ascending or descending), may have to reorder colors
 
 
 
@@ -969,7 +964,10 @@ map.on('style.load', function() {
     }
   });
 
-
+  $('.btn btn-secondary').bind('click', function() {
+    var buttons = $('.btn btn-secondary');
+    buttons.toggleClass("active");
+  });
 
   // when the user hovers over our nyc-cd layer make the mouse cursor a pointer
   map.on('mouseenter', 'nyc-cd', () => {
